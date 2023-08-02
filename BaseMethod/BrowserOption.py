@@ -9,11 +9,12 @@ import os
 
 # 浏览器操作
 class BrowserDriver(object):
-    drivers_base_path = os.getcwd() + os.sep + 'drivers'
-    chrome_driver_path = drivers_base_path + 'chromedriver.exe'
 
     def open_browser(self, url):
+        drivers_base_path = os.getcwd() + os.sep + 'drivers'
+        chrome_driver_path = drivers_base_path + 'chromedriver.exe'
 
         options = webdriver.ChromeOptions()
-        options.add_argument('--start-maximized') # 窗口最大化启动
-        browser = webdriver.Chrome()
+        options.add_argument('--start-maximized')  # 窗口最大化启动
+        self.driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
+        self.driver.get(url) # 打开网页
