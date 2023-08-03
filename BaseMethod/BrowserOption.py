@@ -18,10 +18,11 @@ class BrowserDriver(object):
         drivers_base_path = os.getcwd() + os.sep + 'drivers' + os.sep
         chrome_driver_path = drivers_base_path + 'chromedriver.exe'
 
-        options = Options() # options = webdriver.ChromeOptions()
+        options = Options()  # options = webdriver.ChromeOptions()
         options.add_argument('--start-maximized')  # 窗口最大化启动
+        options.binary_location = chrome_driver_path
 
-        self.driver = webdriver.Chrome(executable_path='/driver/chromedriver.exe', options=options)
+        self.driver = webdriver.Chrome(options=options)
         self.driver.get(url)  # 打开网页
         sleep(10)
     # 关闭浏览器
@@ -35,3 +36,4 @@ if __name__ == '__main__':
     # j = BrowserDriver.open_browser()
     x.open_browser('https://www.baidu.com')
     sleep(3)
+    x.close_browser()
