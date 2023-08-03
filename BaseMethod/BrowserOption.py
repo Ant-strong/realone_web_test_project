@@ -1,20 +1,37 @@
 #!/usr/bin/python3
-# -*- coding: uft-8 -*-
 # @Author : ZM
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
+from time import sleep
 
 
 # 浏览器操作
 class BrowserDriver(object):
 
+    def __init__(self):
+        self.driver = None
+
     def open_browser(self, url):
-        drivers_base_path = os.getcwd() + os.sep + 'drivers'
+        # chromedriver地址
+        drivers_base_path = os.getcwd() + os.sep + 'drivers' + os.sep
         chrome_driver_path = drivers_base_path + 'chromedriver.exe'
 
-        options = webdriver.ChromeOptions()
+        options = Options() # options = webdriver.ChromeOptions()
         options.add_argument('--start-maximized')  # 窗口最大化启动
-        self.driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
-        self.driver.get(url) # 打开网页
+
+        self.driver = webdriver.Chrome(executable_path='/driver/chromedriver.exe', options=options)
+        self.driver.get(url)  # 打开网页
+        sleep(10)
+    # 关闭浏览器
+
+    def close_browser(self):
+        self.driver.quit()
+
+
+if __name__ == '__main__':
+    x = BrowserDriver()
+    # j = BrowserDriver.open_browser()
+    x.open_browser('https://www.baidu.com')
+    sleep(3)
