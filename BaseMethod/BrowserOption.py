@@ -9,18 +9,17 @@ from time import sleep
 
 # 浏览器操作
 class BrowserDriver(object):
+    # chromedriver地址
+    drivers_base_path = os.getcwd() + os.sep + 'drivers' + os.sep
+    chrome_driver_path = drivers_base_path + 'chromedriver.exe'
 
     def __init__(self):
         self.driver = None
 
     def open_browser(self, url):
-        # chromedriver地址
-        drivers_base_path = os.getcwd() + os.sep + 'drivers' + os.sep
-        chrome_driver_path = drivers_base_path + 'chromedriver.exe'
-
         options = Options()  # options = webdriver.ChromeOptions()
         options.add_argument('--start-maximized')  # 窗口最大化启动
-        options.binary_location = chrome_driver_path
+        options.binary_location = self.chrome_driver_path
 
         self.driver = webdriver.Chrome(options=options)
         self.driver.get(url)  # 打开网页
