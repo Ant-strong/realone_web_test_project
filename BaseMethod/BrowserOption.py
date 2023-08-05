@@ -25,15 +25,14 @@ class BrowserDriver(object):
         self.driver = webdriver.Chrome(options=options)
         self.driver.get(url)  # 打开网页
         sleep(10)
-    # 关闭浏览器
 
+# 关闭浏览器
     def close_browser(self):
         self.driver.quit()
 
 
 if __name__ == '__main__':
     x = BrowserDriver()
-    # j = BrowserDriver.open_browser()
     x.open_browser('https://www.baidu.com')
     sleep(3)
     x.close_browser()
