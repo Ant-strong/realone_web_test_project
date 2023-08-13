@@ -23,8 +23,11 @@ class BrowserDriver(object):
         options.binary_location = self.chrome_driver_path
 
         self.driver = webdriver.Chrome(options=options)
+        self.driver.implicitly_wait(10)
         self.driver.get(url)  # 打开网页
         sleep(10)
+        page_title = self.driver.title
+        return page_title
 
 # 关闭浏览器
     def close_browser(self):

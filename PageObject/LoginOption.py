@@ -16,7 +16,11 @@ loc_phone = LoginPhoneElement()
 class LoginTabPassword(BrowserDriver):
 
     def login_success(self, username, password):
-        self.implicitly_wait(10)
         self.driver.find_element(*loc.tab_password).click()
-        self.driver.find_element(*loc.input_password)
+        self.driver.find_element(*loc.input_account).send_keys(username)
+        self.driver.find_element(*loc.input_password).send_skys(password)
+        self.driver.find_element(*loc.policy_checkbox).click()
+        self.driver.find_element(*loc.login_button).click()
+        text = self.driver.find_element(*loc.login_success_text).text  # 获取登录成功后页面的驾驶舱字串用来做校验
+        return text
 

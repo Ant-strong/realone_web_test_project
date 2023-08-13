@@ -10,6 +10,7 @@ class LoginElement(object):
     login_button = (By.CLASS_NAME, 'el-button el-button--primary el-button--large is-disabled bottom-btn')
     policy_checkbox = (By.CLASS_NAME, 'el-checkbox_inner')
     login_error_message = (By.XPATH, '//*[@id="pane-password"]/form/div[1]/div/span')
+    login_success_text = (By.CLASS_NAME, 'header-title')
 
 
 class LoginPhoneElement(object):
