@@ -13,5 +13,6 @@ class TestLoginPword:
 
     def test_login_success(self):
         h = LoginTabPassword()
-        result = h.login_success(tab_password_data().)
+        result = h.login_success(TabPasswordData.user_name['correct_name'],
+                                 TabPasswordData.user_password['correct_password'])
         assert result == '驾驶舱', '登录失败'
