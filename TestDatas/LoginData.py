@@ -1,6 +1,9 @@
 # 存放登录页面测试数据
+import os
+
 
 open_url = 'http://192.168.42.245/rcms'
+screenshot_path = os.getcwd() + os.sep + 'Screenshot' + os.sep
 
 
 class TabPasswordData:

@@ -5,12 +5,12 @@ from selenium.webdriver.common.by import By
 class LoginElement(object):
 
     tab_password = (By.ID, 'tab_password')
-    input_account = (By.ID, 'el-id-308-7')
-    input_password = (By.ID, 'el-id-308-8')
-    login_button = (By.CLASS_NAME, 'el-button el-button--primary el-button--large is-disabled bottom-btn')
-    policy_checkbox = (By.CLASS_NAME, 'el-checkbox_inner')
+    input_account = (By.XPATH, '//input[1]')
+    input_password = (By.XPATH, '//input[@placeholder="请输入密码"]')
+    login_button = (By.XPATH, '//div[@class="form-bottom"]/button')
+    policy_checkbox = (By.XPATH, '//span[@class="el-checkbox__input"]')
     login_error_message = (By.XPATH, '//*[@id="pane-password"]/form/div[1]/div/span')
-    login_success_text = (By.CLASS_NAME, 'header-title')
+    login_success_text = (By.XPATH, '//*[@class="header-title"]')
 
 
 class LoginPhoneElement(object):

@@ -5,6 +5,7 @@ from BaseMethod.BrowserOption import *
 from TestDatas.LoginData import *
 
 
+# @pytest.fixture(scope="class", autouse=True)
 class TestLoginPword:
     def test_open_website(self):
         h = BrowserDriver()
@@ -14,5 +15,6 @@ class TestLoginPword:
     def test_login_success(self):
         h = LoginTabPassword()
         result = h.login_success(TabPasswordData.user_name['correct_name'],
-                                 TabPasswordData.user_password['correct_password'])
+                                 TabPasswordData.user_password['correct_password'],
+                                 open_url)
         assert result == '驾驶舱', '登录失败'
