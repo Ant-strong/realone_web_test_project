@@ -1,9 +1,9 @@
 # 存放登录页面测试数据
 import os
 
-
 open_url = 'http://192.168.42.245/rcms'
-screenshot_path = os.getcwd() + os.sep + 'Screenshot' + os.sep
+login_url = 'http://192.168.42.245/rcms/#/index'
+screenshot_path = os.getcwd() + os.sep
 
 
 class TabPasswordData:
@@ -15,4 +15,5 @@ class TabPasswordData:
 class PhonePasswordData:
     phone_number = {"correct_number": "18661285711", "wrong_number": "186612877777"}
     verification_code = {"wrong_code": "a11111"}
-    check_message = {"wrong_ver_code": "验证码错误", "wrong_nuber": "输入正确的手机号码", "timeout_ver_code": "验证码已失效"}
+    check_message = {"wrong_ver_code": "验证码错误", "wrong_nuber": "输入正确的手机号码",
+                     "timeout_ver_code": "验证码已失效"}

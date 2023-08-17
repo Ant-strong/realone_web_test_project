@@ -5,8 +5,16 @@ from BaseMethod.BrowserOption import *
 from TestDatas.LoginData import *
 
 
-# @pytest.fixture(scope="class", autouse=True)
 class TestLoginPword:
+
+    @pytest.fixture
+    def browser(self):
+        driver = webdriver.Chrome()
+        yield driver
+        # 这里可以添加一些代码来保持浏览器窗口打开
+        input("Press Enter to close the browser...")
+        driver.quit()
+
     def test_open_website(self):
         h = BrowserDriver()
         title = h.open_browser(open_url)

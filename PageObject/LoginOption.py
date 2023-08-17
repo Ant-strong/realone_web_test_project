@@ -20,15 +20,15 @@ class LoginTabPassword(BrowserDriver):
 
     def login_success(self, username, password, url):
         driver = driver_singleton.get_driver()
-        # driver.get(url)
+        driver.get(url)
         sleep(4)
-        driver.save_screenshot(screenshot_path + 'open_url.png')
+        driver.save_screenshot(r'{}\screenshot\open_url.png'.format(screenshot_path))
         driver.find_element(*loc.input_account).send_keys(username)
         driver.find_element(*loc.input_password).send_keys(password)
         driver.find_element(*loc.policy_checkbox).click()
-        driver.save_screenshot(screenshot_path + 'before_login.png')
+        driver.save_screenshot(r'{}\screenshot\before_login.png'.format(screenshot_path))
         driver.find_element(*loc.login_button).click()
         sleep(10)
-        driver.save_screenshot(screenshot_path + 'after_login.png')
+        driver.save_screenshot(screenshot_path + 'screenshot\\after_login.png')
         text = driver.find_element(*loc.login_success_text).text  # 获取登录成功后页面的驾驶舱字串用来做校验
         return text
